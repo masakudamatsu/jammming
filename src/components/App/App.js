@@ -21,6 +21,20 @@ class App extends React.Component {
           artist: 'Tim McGraw',
           album: 'Love Story'
         }
+      ],
+      playlistTracks: [
+        {
+          id: 1,
+          name: 'Tiny Dancer',
+          artist: 'Elton John',
+          album: 'Madman Across The Water'
+        },
+        {
+          id: 2,
+          name: 'Tiny Dancer',
+          artist: 'Tim McGraw',
+          album: 'Love Story'
+        }
       ]
     };
   }
@@ -33,7 +47,8 @@ class App extends React.Component {
             <div class="App-playlist">
               <SearchResults
                 tracks={this.state.tracks} />
-              <Playlist />
+              <Playlist
+                playlistTracks={this.state.playlistTracks}/>
             </div>
         </div>
       </div>

@@ -8,7 +8,11 @@ class Playlist extends React.Component {
       <div className="Playlist">
         <input value='New Playlist' />
         <div className="TrackList">
-          <PlaylistTrack />
+          {
+            this.props.playlistTracks.map(playlistTrack => {
+              return <PlaylistTrack key={playlistTrack.id} playlistTrack={playlistTrack} />;
+            })
+          }
         </div>
         <a class="Playlist-save">SAVE TO SPOTIFY</a>
       </div>
