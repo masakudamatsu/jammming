@@ -12,6 +12,7 @@ class SearchResults extends React.Component {
             this.props.tracks.map(track => {
               return <SearchResult
                 key={track.id}
+                addToPlaylist={this.props.addToPlaylist}
                 track={track} />;
             })
           }

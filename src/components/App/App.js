@@ -22,21 +22,15 @@ class App extends React.Component {
           album: 'Love Story'
         }
       ],
-      playlistTracks: [
-        {
-          id: 1,
-          name: 'Tiny Dancer',
-          artist: 'Elton John',
-          album: 'Madman Across The Water'
-        },
-        {
-          id: 2,
-          name: 'Tiny Dancer',
-          artist: 'Tim McGraw',
-          album: 'Love Story'
-        }
-      ]
+      playlistTracks: []
     };
+    this.addToPlaylist = this.addToPlaylist.bind(this);
+  }
+  addToPlaylist(track) {
+    this.state.playlistTracks.push(track);
+    this.setState({
+      playlistTracks: this.state.playlistTracks
+    });
   }
   render() {
     return (
@@ -46,7 +40,8 @@ class App extends React.Component {
             <SearchBar />
             <div class="App-playlist">
               <SearchResults
-                tracks={this.state.tracks} />
+                tracks={this.state.tracks}
+                addToPlaylist={this.addToPlaylist}/>
               <Playlist
                 playlistTracks={this.state.playlistTracks}/>
             </div>
