@@ -6,7 +6,6 @@ class PlaylistTrack extends React.Component {
   render() {
     return (
       <div className="Track">
-        <Track />
         <a className="Track-action">-</a>
       </div>    )
   }
