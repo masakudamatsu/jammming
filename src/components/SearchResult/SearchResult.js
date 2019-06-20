@@ -1,12 +1,14 @@
 import React from 'react';
 import './SearchResult.css';
-import Track from '../Track/Track';
 
 class SearchResult extends React.Component {
   render() {
     return (
       <div className="Track">
-        <Track track={this.props.track} />
+        <div className="Track-information">
+          <h3>{this.props.track.name}</h3>
+          <p>{this.props.track.artist} | {this.props.track.album}</p>
+        </div>
         <a className="Track-action">+</a>
       </div>    )
   }
