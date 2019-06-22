@@ -27,6 +27,9 @@ class App extends React.Component {
     this.addToPlaylist = this.addToPlaylist.bind(this);
   }
   addToPlaylist(track) {
+    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    }
     this.setState({
       playlistTracks: [...this.state.playlistTracks, track]
     });
