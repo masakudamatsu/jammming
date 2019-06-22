@@ -27,9 +27,8 @@ class App extends React.Component {
     this.addToPlaylist = this.addToPlaylist.bind(this);
   }
   addToPlaylist(track) {
-    this.state.playlistTracks.push(track);
     this.setState({
-      playlistTracks: this.state.playlistTracks
+      playlistTracks: [...this.state.playlistTracks, track]
     });
   }
   render() {
