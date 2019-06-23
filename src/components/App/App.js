@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends React.Component {
     this.savePlaylist = this.savePlaylist.bind(this);
   }
   search(term) {
-    console.log(term);
+    Spotify.getAccessToken();
   }
   addToPlaylist(track) {
     if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
