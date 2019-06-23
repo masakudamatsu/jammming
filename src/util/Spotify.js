@@ -20,14 +20,12 @@ const Spotify = {
   async search(term) {
     try {
       const apiURL = `https://api.spotify.com/v1/search?q=${term}&type=album,artist,track`;
-      console.log(accessToken)
       const response = await fetch(apiURL, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
       });
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
       return jsonResponse.tracks.items.map(track => {
         return {
           id: track.id,
