@@ -9,20 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tracks: [
-        {
-          id: 1,
-          name: 'Tiny Dancer',
-          artist: 'Elton John',
-          album: 'Madman Across The Water'
-        },
-        {
-          id: 2,
-          name: 'Tiny Dancer',
-          artist: 'Tim McGraw',
-          album: 'Love Story'
-        }
-      ],
+      tracks: [],
       playlistTracks: [],
       playlistName: 'New playlist'
     };
@@ -34,6 +21,11 @@ class App extends React.Component {
   }
   search(term) {
     Spotify.getAccessToken();
+    Spotify.search(term).then(tracks => {
+      this.setState({
+        tracks: tracks
+      })
+    });
   }
   addToPlaylist(track) {
     if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
