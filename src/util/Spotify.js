@@ -38,6 +38,49 @@ const Spotify = {
     } catch(error) {
       return [];
     }
+  },
+  async savePlaylist(playlistName, trackURIs) {
+    try {
+      if (playlistName && trackURIs) {
+        let headers = {
+            Authorization: `Bearer ${accessToken}`
+        };
+        let userID;
+        // Fetch user ID
+        const responseUserID = await fetch('https://api.spotify.com/v1/me', {
+          headers: headers
+        });
+        const jsonResponseUserID = await responseUserID.json();
+        userID = jsonResponseUserID.id;
+        // Create a new playlist
+        headers['Content-Type'] = 'application/json';
+        const responsePlaylist = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: playlistName
+          }),
+          headers: headers
+        });
+        const jsonResponsePlaylist = await responsePlaylist.json();
+        const playlistID = jsonResponsePlaylist.id;
+        // Add tracks to the new playlist
+        const responseAddTracks = await fetch( `https://api.spotify.com/v1/playlists/${playlistID}/tracks`, {
+          method: 'POST',
+          body: JSON.stringify({
+            uris: trackURIs
+          }),
+          headers: headers
+        });
+        if (responseAddTracks.ok) {
+          console.log('Success!');
+        }
+        throw new Error('Request failed');
+      } else {
+        return;
+      }
+    } catch(error) {
+      console.log(error);
+    }
   }
 };
 
