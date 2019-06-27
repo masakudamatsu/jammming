@@ -1,5 +1,5 @@
 const clientID = 'a3ab6dd2b49a45c5b30ad99ef16db769';
-const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'http://masa-jammming.surge.sh';
 
 let accessToken;
 
