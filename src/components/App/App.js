@@ -4,6 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends React.Component {
         <div className="App">
             <SearchBar
               search={this.search}/>
+            <AudioPlayer />
             <div className="App-playlist">
               <SearchResults
                 tracks={this.state.tracks}
