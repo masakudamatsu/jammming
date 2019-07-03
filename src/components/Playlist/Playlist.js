@@ -16,17 +16,19 @@ class Playlist extends React.Component {
         <input value={this.props.playlistName}
                onChange={this.handleNameChange}/>
         <div className="TrackList">
-          {
-            this.props.playlistTracks.map(playlistTrack => {
-              return <PlaylistTrack key={playlistTrack.id} playlistTrack={playlistTrack} removeFromPlaylist={this.props.removeFromPlaylist}/>;
-            })
-          }
+          {this.props.playlistTracks.map(playlistTrack => {
+            return (
+              <PlaylistTrack
+                key={playlistTrack.id}
+                playlistTrack={playlistTrack} removeFromPlaylist={this.props.removeFromPlaylist}/>
+            );
+          })}
         </div>
         <a className="Playlist-save" onClick={this.props.onSave}>
-           SAVE TO SPOTIFY
+          SAVE TO SPOTIFY
         </a>
       </div>
-    )
+    );
   }
 }
 

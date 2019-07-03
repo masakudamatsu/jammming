@@ -8,17 +8,17 @@ class SearchResults extends React.Component {
       <div className="SearchResults">
         <h2>Results</h2>
         <div className="TrackList">
-          {
-            this.props.tracks.map(track => {
-              return <SearchResult
+          {this.props.tracks.map(track => {
+            return (
+              <SearchResult
                 key={track.id}
                 addToPlaylist={this.props.addToPlaylist}
-                track={track} />;
-            })
-          }
+                track={track} />
+            );
+          })}
         </div>
       </div>
-    )
+    );
   }
 }
 

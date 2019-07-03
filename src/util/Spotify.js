@@ -1,5 +1,6 @@
 const clientID = 'a3ab6dd2b49a45c5b30ad99ef16db769';
 const redirectURI = 'http://masa-jammming.surge.sh';
+// const redirectURI = 'http://localhost:3000/'; // For locally testing the code
 
 let accessToken;
 
@@ -33,7 +34,7 @@ const Spotify = {
           artist: track.artists[0].name,
           album: track.album.name,
           uri: track.uri
-        }
+        };
       });
     } catch(error) {
       return [];

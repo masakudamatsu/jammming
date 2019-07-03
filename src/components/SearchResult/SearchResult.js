@@ -18,9 +18,9 @@ class SearchResult extends React.Component {
           <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
         <a className="Track-action"
-           onClick={this.handleClick}
-          >+</a>
-      </div>    )
+           onClick={this.handleClick}>+</a>
+      </div>
+    );
   }
 }
 

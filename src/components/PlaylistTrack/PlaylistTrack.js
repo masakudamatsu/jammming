@@ -18,7 +18,8 @@ class PlaylistTrack extends React.Component {
           <p>{this.props.playlistTrack.artist} | {this.props.playlistTrack.album}</p>
         </div>
         <a className="Track-action" onClick={this.handleClick}>-</a>
-      </div>    )
+      </div>
+    );
   }
 }
 

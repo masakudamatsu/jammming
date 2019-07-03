@@ -39,7 +39,7 @@ class App extends React.Component {
     const newPlaylist = this.state.playlistTracks.filter(savedTrack => savedTrack.id !== track.id);
     this.setState({
       playlistTracks: newPlaylist
-    })
+    });
   }
   changePlaylistName(newName) {
     this.setState({
@@ -55,7 +55,7 @@ class App extends React.Component {
     this.setState({
       playlistTracks: [],
       playlistName: 'New playlist'
-    })
+    });
   }
   render() {
     return (
