@@ -49,4 +49,4 @@ The Spotify utility handles the access to Spotify API for track search and for t
 - Send the playlist title and the list of tracks in the playlist to Spotify API so that users will see the new playlist in their Spotify account.
 
 ## License
-The Jammming app is MIT licensed.
+The Jammming app is [MIT licensed](https://github.com/masakudamatsu/jammming/blob/master/LICENSE).
