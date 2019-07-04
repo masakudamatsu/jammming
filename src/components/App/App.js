@@ -40,7 +40,7 @@ class App extends React.Component {
       trackPlayingAlbum: track.album,
       trackPlayingPreviewURL: track.previewURL
     });
-    debugger
+    document.getElementById('audio').load(); // Without this line of code, the audio player won't recognize the new sample.
   }
   addToPlaylist(track) {
     if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
