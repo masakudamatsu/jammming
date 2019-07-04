@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jammming
+A web app that allows users to search tracks over Spotify and create a new playlist to their Spotify account. 
 
-## Available Scripts
+The app is available for use at [masa-jammming.surge.sh](https://masa-jammming.surge.sh).
 
-In the project directory, you can run:
+## Motivation
+Writing the Javascript and React code from scratch to create this app is the capstone project of CodeCademy Pro Intensive "[Build Front-End Web Applications from Scratch](https://www.codecademy.com/learn/paths/build-web-apps-with-react)" (a 8-week intensive online course on JavaScript and React fundamentals). It demonstrates what I have learned from the course.
 
-### `npm start`
+## How the app is constructed
+The Jammming app consists of several React components plus one utility script to access to Spotify API.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### App
+The App component plays the following roles
+- Initialize the state of (1) the list of track search results, (2) the attributes of the track to be played back, (3) the list of tracks in the playlist, (4) the title of the playlist.
+- Define a function that is triggered when users hit the search button or the return key after typing a search term (by calling the function defined in Spotify utility).
+- Define a function that is triggered when users click the headphone icon of the track in the search results.
+- Define a function that is triggered when users click the plus button of the track in the search results, which will add the clicked track to a playlist.
+- Define a function that is triggered when users click the minus button of the track in the playlist, which will remove the clicked track from teh playlist.
+- Define a function that is triggered when users type the playlist title.
+- Define a function that is triggered when users hit the SAVE TO SPOTIFY button, which will upload the playlist to users' Spotify account  (by calling the function defined in Spotify utility).
+- Render all the other components
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### SearchBar
+The SearchBar component handles the search of tracks over Spotify
+- Initialize and update the state of a search term that users enter.
+- Trigger the search over Spotify when users hit the return key or the SEARCH button.
 
-### `npm test`
+### SearchResults
+The SearchResults component renders the list of trackes retrieved from Spotify search.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### SearchResult
+The SearchResult component renders the track information retrieved from Spotify search. It also handles the users interaction with search results:
+- Trigger the playback of the track when users click the headphone icon next to the track information
+- Add the track to the playlist when users click the plus button
 
-### `npm run build`
+### AudioPlayer
+The AudioPlayer component renders the audio player and sets the track information passed from the App component. *(This component is not part of the CodeCademy course.)*
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Playlist
+The Playlist component renders the playlist and handles the typing of a playlist title by users.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### PlaylistTrack
+The PlaylistTrack component renders the track information in the playlist and handles the clicking of the minus icon by users to remove the track from the playlist
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Spotify utility
+The Spotify utility handles the access to Spotify API for track search and for the addition of a new playlist to users' account.
+- Check if the access token is obtained. If not, redirect users to Spotify user login page.
+- Send the search term users have entered to Spotify API and retrieve the list of tracks that match the search term.
+- Send the playlist title and the list of tracks in the playlist to Spotify API so that users will see the new playlist in their Spotify account.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+The Jammming app is MIT licensed.
