@@ -33,8 +33,11 @@ class SearchResult extends React.Component {
           <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
         {listenIcon}
-        <a className="Track-action"
-           onClick={this.handleClick}>+</a>
+        <a
+          className="Track-action"
+          onClick={this.handleClick}>
+          +
+        </a>
       </div>
     );
   }

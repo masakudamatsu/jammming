@@ -78,24 +78,23 @@ class App extends React.Component {
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
             <SearchBar
-              search={this.search}/>
+              search={this.search} />
             <AudioPlayer
               trackPlayingName={this.state.trackPlayingName}
               trackPlayingArtist={this.state.trackPlayingArtist}
               trackPlayingAlbum={this.state.trackPlayingAlbum}
-              trackPlayingPreviewURL={this.state.trackPlayingPreviewURL}
-              />
+              trackPlayingPreviewURL={this.state.trackPlayingPreviewURL} />
             <div className="App-playlist">
               <SearchResults
                 tracks={this.state.tracks}
                 playTrack={this.playTrack}
-                addToPlaylist={this.addToPlaylist}/>
+                addToPlaylist={this.addToPlaylist} />
               <Playlist
                 playlistTracks={this.state.playlistTracks}
                 removeFromPlaylist={this.removeFromPlaylist}
                 playlistName={this.state.playlistName}
                 changePlaylistName={this.changePlaylistName}
-                onSave={this.savePlaylist}/>
+                onSave={this.savePlaylist} />
             </div>
         </div>
       </div>

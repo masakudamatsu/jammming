@@ -13,18 +13,22 @@ class Playlist extends React.Component {
   render() {
     return (
       <div className="Playlist">
-        <input value={this.props.playlistName}
-               onChange={this.handleNameChange}/>
+        <input
+          value={this.props.playlistName}
+          onChange={this.handleNameChange} />
         <div className="TrackList">
           {this.props.playlistTracks.map(playlistTrack => {
             return (
               <PlaylistTrack
                 key={playlistTrack.id}
-                playlistTrack={playlistTrack} removeFromPlaylist={this.props.removeFromPlaylist}/>
+                playlistTrack={playlistTrack}
+                removeFromPlaylist={this.props.removeFromPlaylist} />
             );
           })}
         </div>
-        <a className="Playlist-save" onClick={this.props.onSave}>
+        <a
+          className="Playlist-save"
+          onClick={this.props.onSave} >
           SAVE TO SPOTIFY
         </a>
       </div>

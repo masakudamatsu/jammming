@@ -24,13 +24,15 @@ class AudioPlayer extends React.Component {
       <div className="AudioPlayer">
         <h2>Now Playing...</h2>
         {trackInfo}
-        <audio id="audio"
-               className="AudioPlayerControl"
-               controls
-               autoPlay
-               preload="metadata">
-      	  <source src={this.props.trackPlayingPreviewURL}
-                  type="audio/mpeg" />
+        <audio
+          id="audio"
+          className="AudioPlayerControl"
+          controls
+          autoPlay
+          preload="metadata">
+      	  <source
+            src={this.props.trackPlayingPreviewURL}
+            type="audio/mpeg" />
         	Your browser does not support the audio element.
         </audio>
       </div>
